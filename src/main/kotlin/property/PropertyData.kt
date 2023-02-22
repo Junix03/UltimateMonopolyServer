@@ -1,6 +1,7 @@
 package property
 
 import property.PropertyColor.*
+import property.PropertyType.*
 
 // Center Circle / Bottom Right
 val MediterraneanAve = Property("Mediterranean Ave", 60, listOf(2, 10, 30, 90, 160, 250, 750), 50, 30)
@@ -61,7 +62,7 @@ val MadisonAve = FifthAve.copy(name = "Madison Ave")
 val WallSt = Property("Wall St", 500, listOf(80, 300, 800, 1800, 2200, 2700, 4200), 300, 250)
 
 // Outer Circle / Bottom Right
-val LakeSt = Property("Lake St", 30, listOf(1, 5, 15, 45, 125, 625), 50, 15)
+val LakeSt = Property("Lake St", 30, listOf(1, 5, 15, 45, 80, 125, 625), 50, 15)
 val NicolletAve = LakeSt.copy(name = "Nicollet Ave")
 val HennepinAve = Property("Hennepin Ave", 60, listOf(3, 15, 45, 120, 240, 350, 850), 50, 30)
 
@@ -163,4 +164,15 @@ val utilityList = listOf(WaterWorks, CableCompany, ElectricCompany, InternetServ
 fun Map<PropertyColor, List<Property>>.getColor(property: Property): PropertyColor? {
     entries.forEach { if (it.value.contains(property)) return it.key }
     return null
+}
+
+fun getPropertyType(property: Property): PropertyType {
+    return if (stationList.contains(property))
+        STATION
+    else if (cabCoList.contains(property))
+        CABCO
+    else if (utilityList.contains(property))
+        UTILITY
+    else
+        STREET
 }

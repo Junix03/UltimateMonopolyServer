@@ -23,7 +23,7 @@ data class Property(val name: String, val price: Int, val rent: List<Int>, val u
     }
 }
 
-enum class PropertyColor(private val color: Color) {
+enum class PropertyColor(val color: Color) {
     // Miscellaneous
     ColorAFE7CC(Color(175, 231, 204)),
 
@@ -42,10 +42,8 @@ enum class PropertyColor(private val color: Color) {
     ColorFFE680(Color(255, 230, 128)), Color008066(Color(0, 128, 102)),
     Color800033(Color(128, 0, 51)), ColorAA8800(Color(170, 136, 0)),
     ColorFFB380(Color(255, 179, 128)), Color800000(Color(128, 0, 0));
-
-    fun rgb() = color.rgb
-
-    fun hex() = convertToHex(rgb())
-    private fun convertToHex(int: Int) = int.toString(16).padStart(6, '0')
 }
 
+enum class PropertyType(val cardTitle: String) {
+    STREET("Street"), STATION("Station"), CABCO("Cab Co."), UTILITY("Utility")
+}
