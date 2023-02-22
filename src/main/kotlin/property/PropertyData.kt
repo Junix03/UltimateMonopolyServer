@@ -4,7 +4,7 @@ import property.PropertyColor.*
 
 // Center Circle / Bottom Right
 val MediterraneanAve = Property("Mediterranean Ave", 60, listOf(2, 10, 30, 90, 160, 250, 750), 50, 30)
-val BalticAve = Property("Baltic Ave", 60, listOf(4, 20, 60, 180, 320, 450, 90), 50, 30) // TODO Check SKYSCRAPER
+val BalticAve = Property("Baltic Ave", 60, listOf(4, 20, 60, 180, 320, 450, 900), 50, 30)
 
 // Center Circle / Bottom Left
 val OrientalAve = Property("Oriental Ave", 100, listOf(6, 30, 90, 270, 400, 550, 1050), 50, 50)
@@ -77,6 +77,57 @@ val WestheimerRd = KatyFreeway.copy(name = "Westheimer Rd")
 val KirbyDr = Property("Kirby Dr", 180, listOf(14, 70, 200, 550, 750, 950, 1450), 100, 80)
 val CullenBlvd = KirbyDr.copy(name = "Cullen Blvd")
 
+// Outer Circle / Left Top
+val DekalbAve = Property("Dekalb Ave", 210, listOf(17, 85, 240, 670, 840, 1025, 1525), 100, 90)
+val YoungIntlBlvd = DekalbAve.copy(name = "Young Int'l Blvd")
+val DecaturSt = Property("Decatur St", 240, listOf(20, 100, 300, 750, 925, 1100, 1600), 100, 100)
+val PeachtreeSt = DecaturSt.copy(name = "Peachtree St")
+
+// Outer Circle / Top Left
+val RandolphSt = Property("Randolph St", 270, listOf(23, 115, 345, 825, 1010, 1180, 2180), 150, 110)
+val LakeShoreDr = RandolphSt.copy(name = "Lake Shore Dr")
+val WackerDr = Property("Wacker Dr", 300, listOf(26, 130, 390, 900, 1100, 1275, 2275), 150, 120)
+val MichiganAve = WackerDr.copy(name = "Michigan Ave")
+
+// Outer Circle / Top Right
+val SouthTemple = Property("South Temple", 330, listOf(32, 160, 470, 1050, 1250, 1500, 2500), 200, 130)
+val WestTemple = SouthTemple.copy(name = "West Temple")
+val NorthTemple = Property("North Temple", 360, listOf(38, 170, 520, 1125, 1425, 2275, 2650), 200, 140)
+val TempleSquare = NorthTemple.copy(name = "Temple Square")
+
+// Outer Circle / Right Top
+val SouthSt = Property("South St", 390, listOf(45, 210, 575, 1300, 1600, 1800, 3300), 250, 150)
+val BroadSt = SouthSt.copy(name = "Broad St")
+val WalnutSt = Property("Walnut St", 420, listOf(55, 225, 630, 1450, 1750, 2050, 3550), 250, 160)
+val MarketSt = WalnutSt.copy(name = "Market St")
+
+// Outer Circle / Right Bottom
+val MulhollandBlvd = Property("Mulholland Blvd", 450, listOf(70, 350, 750, 1600, 1850, 2100, 3600), 300, 175)
+val VenturaBlvd = Property("Ventura Blvd", 480, listOf(80, 400, 825, 1800, 2175, 2550, 4050), 300, 200)
+val RodeoDr = Property("Rodeo Dr", 510, listOf(90, 450, 900, 2000, 2500, 3000, 4500), 300, 250)
+
+// Station
+val PennsylvaniaRR = Station.copy(name = "Pennsylvania R.R.")
+val ReadingRailroad = Station.copy(name = "Reading Railroad")
+val BORailroad = Station.copy(name = "B&O Railroad")
+val ShortLine = Station.copy(name = "Short Line")
+
+// CabCo
+val CheckerCabCo = CabCo.copy(name = "Checker Cab Co.")
+val BlackWhiteCabCo = CabCo.copy(name = "Black & White Cab Co.")
+val YellowCabCo = CabCo.copy(name = "Yellow Cab Co.")
+val UteCabCo = CabCo.copy(name = "Ute Cab Co.")
+
+// Utility
+val WaterWorks = Utility.copy(name = "Water Works")
+val CableCompany = Utility.copy(name = "Cable Company")
+val ElectricCompany = Utility.copy(name = "Electric Company")
+val InternetServiceProvider = Utility.copy(name = "Internet Service Provider")
+val GasCompany = Utility.copy(name = "Gas Company")
+val TelephoneCompany = Utility.copy(name = "Telephone Company")
+val TrashCollector = Utility.copy(name = "Trash Collector")
+val SewageSystem = Utility.copy(name = "Sewage System")
+
 val streetMap = mapOf(
     // Center Circle
     Pair(Color580C39, listOf(MediterraneanAve, BalticAve)),
@@ -98,7 +149,16 @@ val streetMap = mapOf(
     Pair(ColorFFAAAA, listOf(LakeSt, NicolletAve, HennepinAve)),
     Pair(Color80FF80, listOf(TheEsplanade, CanalSt, MagazineSt, BourbonSt)),
     Pair(ColorFFE680, listOf(KatyFreeway, WestheimerRd, KirbyDr, CullenBlvd)),
+    Pair(Color008066, listOf(DekalbAve, YoungIntlBlvd, DecaturSt, PeachtreeSt)),
+    Pair(Color800033, listOf(RandolphSt, LakeShoreDr, WackerDr, MichiganAve)),
+    Pair(ColorAA8800, listOf(SouthTemple, WestTemple, NorthTemple, TempleSquare)),
+    Pair(ColorFFB380, listOf(SouthSt, BroadSt, WalnutSt, MarketSt)),
+    Pair(Color800000, listOf(MulhollandBlvd, VenturaBlvd, RodeoDr))
 )
+
+val stationList = listOf(PennsylvaniaRR, ReadingRailroad, BORailroad, ShortLine)
+val cabCoList = listOf(CheckerCabCo, BlackWhiteCabCo, YellowCabCo, UteCabCo)
+val utilityList = listOf(WaterWorks, CableCompany, ElectricCompany, InternetServiceProvider, GasCompany, TelephoneCompany, TrashCollector, SewageSystem)
 
 fun Map<PropertyColor, List<Property>>.getColor(property: Property): PropertyColor? {
     entries.forEach { if (it.value.contains(property)) return it.key }
